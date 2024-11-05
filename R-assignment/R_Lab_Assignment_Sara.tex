@@ -1,0 +1,687 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={DS311 - R Lab Assignment},
+  pdfauthor={Sara Noora Sundwell},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{DS311 - R Lab Assignment}
+\author{Sara Noora Sundwell}
+\date{2024-11-04}
+
+\begin{document}
+\maketitle
+
+\subsection{R Assignment 1}\label{r-assignment-1}
+
+\begin{itemize}
+\tightlist
+\item
+  In this assignment, we are going to apply some of the build in data
+  set in R for descriptive statistics analysis.
+\item
+  To earn full grade in this assignment, students need to complete the
+  coding tasks for each question to get the result.
+\item
+  After finished all the questions, knit the document into HTML format
+  for submission.
+\end{itemize}
+
+\subsubsection{Question 1}\label{question-1}
+
+Using the \textbf{mtcars} data set in R, please answer the following
+questions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Loading the data}
+\FunctionTok{data}\NormalTok{(mtcars)}
+
+\CommentTok{\# Head of the data set}
+\FunctionTok{head}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Report the number of variables and observations in the data set.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+
+\NormalTok{Variables }\OtherTok{\textless{}{-}} \FunctionTok{ncol}\NormalTok{(mtcars)}
+\NormalTok{Observations }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(mtcars)}
+
+\CommentTok{\# Answer:}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"There are total of"}\NormalTok{, Variables, }\StringTok{"variables and"}\NormalTok{, Observations, }\StringTok{"observations in this data set."}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "There are total of 11 variables and 32 observations in this data set."
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Print the summary statistics of the data set and report how many
+  discrete and continuous variables are in the data set.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+
+\FunctionTok{summary}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Answer:}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"There are"}\NormalTok{, }\FunctionTok{ncol}\NormalTok{(mtcars) }\SpecialCharTok{{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(mtcars, is.numeric)), }\StringTok{"discrete variables and"}\NormalTok{, }\FunctionTok{sum}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(mtcars, is.numeric)), }\StringTok{"continuous variables in this data set."}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "There are 0 discrete variables and 11 continuous variables in this data set."
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calculate the mean, variance, and standard deviation for the variable
+  \textbf{mpg} and assign them into variable names m, v, and s. Report
+  the results in the print statement.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+
+\NormalTok{m }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{var}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{s }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+
+\CommentTok{\# Answer}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"The average of Mile Per Gallon from this data set is "}\NormalTok{, m , }\StringTok{" with variance "}\NormalTok{, v , }\StringTok{" and standard deviation"}\NormalTok{, s , }\StringTok{"."}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The average of Mile Per Gallon from this data set is  20.090625  with variance  36.3241028225806  and standard deviation 6.0269480520891 ."
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Create two tables to summarize 1) average mpg for each cylinder class
+  and 2) the standard deviation of mpg for each gear class.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+
+\CommentTok{\#Table 1}
+
+\NormalTok{average\_mpg\_cylinder }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(mpg }\SpecialCharTok{\textasciitilde{}}\NormalTok{ cyl, }\AttributeTok{data =}\NormalTok{ mtcars, }\AttributeTok{FUN =}\NormalTok{ mean)}
+
+
+\CommentTok{\#Table 2}
+
+\NormalTok{std\_dev\_mpg\_gear }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(mpg }\SpecialCharTok{\textasciitilde{}}\NormalTok{ gear, }\AttributeTok{data =}\NormalTok{ mtcars, }\AttributeTok{FUN =}\NormalTok{ sd)}
+
+\CommentTok{\#Print tables}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Average MPG for each Cylinder Class:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Average MPG for each Cylinder Class:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(average\_mpg\_cylinder)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   cyl      mpg
+## 1   4 26.66364
+## 2   6 19.74286
+## 3   8 15.10000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"Standard Deviation of MPG for each Gear Class:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Standard Deviation of MPG for each Gear Class:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(std\_dev\_mpg\_gear)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   gear      mpg
+## 1    3 3.371618
+## 2    4 5.276764
+## 3    5 6.658979
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Create a crosstab that shows the number of observations belong to each
+  cylinder and gear class combinations. The table should show how many
+  observations given the car has 4 cylinders with 3 gears, 4 cylinders
+  with 4 gears, etc. Report which combination is recorded in this data
+  set and how many observations for this type of car.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+
+\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{cyl, mtcars}\SpecialCharTok{$}\NormalTok{gear)}
+
+\CommentTok{\# Print the crosstab}
+\FunctionTok{print}\NormalTok{(table)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    
+##      3  4  5
+##   4  1  8  2
+##   6  2  4  1
+##   8 12  0  2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Find the most common car type}
+\NormalTok{max\_count }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(table)}
+\NormalTok{type }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(table }\SpecialCharTok{==}\NormalTok{ max\_count, }\AttributeTok{arr.ind =} \ConstantTok{TRUE}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"The most common car type in this data set is car with"}\NormalTok{, type[}\DecValTok{1}\NormalTok{], }\StringTok{"cylinders and"}\NormalTok{, type[}\DecValTok{2}\NormalTok{], }\StringTok{"gears. There are total of"}\NormalTok{, max\_count, }\StringTok{"cars belong to this specification in the data set."}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The most common car type in this data set is car with 3 cylinders and 1 gears. There are total of 12 cars belong to this specification in the data set."
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Question 2}\label{question-2}
+
+Use different visualization tools to summarize the data sets in this
+question.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Using the \textbf{PlantGrowth} data set, visualize and compare the
+  weight of the plant in the three separated group. Give labels to the
+  title, x-axis, and y-axis on the graph. Write a paragraph to summarize
+  your findings.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the data set}
+\FunctionTok{data}\NormalTok{(}\StringTok{"PlantGrowth"}\NormalTok{)}
+
+\CommentTok{\# Head of the data set}
+\FunctionTok{head}\NormalTok{(PlantGrowth)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   weight group
+## 1   4.17  ctrl
+## 2   5.58  ctrl
+## 3   5.18  ctrl
+## 4   6.11  ctrl
+## 5   4.50  ctrl
+## 6   4.61  ctrl
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+
+\FunctionTok{boxplot}\NormalTok{(weight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ group, }\AttributeTok{data =}\NormalTok{ PlantGrowth,}
+        \AttributeTok{main =} \StringTok{"Plant Growth by Group"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Group"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Weight"}\NormalTok{,}
+        \AttributeTok{names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Control"}\NormalTok{, }\StringTok{"Treatment 1"}\NormalTok{, }\StringTok{"Treatment 2"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The boxplot shows that:}
+\CommentTok{\#         Group 1 (Control) exhibits the highest median plant weight, followed by Group 2 (Treatment 1)           and Group 3 (Treatment 2)}
+
+\CommentTok{\#         The variation in weight appears to be greatest in Group 1, while Groups 2 and 3 show less              variability.}
+\CommentTok{\#}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Using the \textbf{mtcars} data set, plot the histogram for the column
+  \textbf{mpg} with 10 breaks. Give labels to the title, x-axis, and
+  y-axis on the graph. Report the most observed mpg class from the data
+  set.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Print histogram}
+\FunctionTok{hist}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg, }\AttributeTok{breaks =} \DecValTok{10}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Histogram of Miles Per Gallon"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Miles Per Gallon"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frequency"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Observations}
+\NormalTok{most\_observed }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{names}\NormalTok{(}\FunctionTok{sort}\NormalTok{(}\FunctionTok{table}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg), }\AttributeTok{decreasing =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{1}\NormalTok{]))}
+
+\CommentTok{\# Answer}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Most of the cars in this data set are in the class of"}\NormalTok{, most\_observed, }\StringTok{"mile per gallon."}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Most of the cars in this data set are in the class of 10.4 mile per gallon."
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Using the \textbf{USArrests} data set, create a pairs plot to display
+  the correlations between the variables in the data set. Plot the
+  scatter plot with \textbf{Murder} and \textbf{Assault}. Give labels to
+  the title, x-axis, and y-axis on the graph. Write a paragraph to
+  summarize your results from both plots.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the data set}
+\FunctionTok{data}\NormalTok{(}\StringTok{"USArrests"}\NormalTok{)}
+
+\CommentTok{\# Head of the data set}
+\FunctionTok{head}\NormalTok{(USArrests)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            Murder Assault UrbanPop Rape
+## Alabama      13.2     236       58 21.2
+## Alaska       10.0     263       48 44.5
+## Arizona       8.1     294       80 31.0
+## Arkansas      8.8     190       50 19.5
+## California    9.0     276       91 40.6
+## Colorado      7.9     204       78 38.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+\FunctionTok{pairs}\NormalTok{(USArrests)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(USArrests}\SpecialCharTok{$}\NormalTok{Murder, USArrests}\SpecialCharTok{$}\NormalTok{Assault,}
+     \AttributeTok{main =} \StringTok{"Murder vs. Assault"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Murder Rate"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Assault Rate"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-9-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# My findings}
+\CommentTok{\#   The plots show a strong link between murder and assault rates in US states.}
+\CommentTok{\#   States with high murder rates often have high assault rates too.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Question 3}\label{question-3}
+
+Download the housing data set from www.jaredlander.com and find out what
+explains the housing prices in New York City.
+
+Note: Check your working directory to make sure that you can download
+the data into the data folder.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Create your own descriptive statistics and aggregation tables to
+  summarize the data set and find any meaningful results between
+  different variables in the data set.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Head of the cleaned data set}
+\FunctionTok{head}\NormalTok{(housingData)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Neighborhood Market.Value.per.SqFt      Boro Year.Built
+## 1    FINANCIAL                200.00 Manhattan       1920
+## 2    FINANCIAL                242.76 Manhattan       1985
+## 4    FINANCIAL                271.23 Manhattan       1930
+## 5      TRIBECA                247.48 Manhattan       1985
+## 6      TRIBECA                191.37 Manhattan       1986
+## 7      TRIBECA                211.53 Manhattan       1985
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+\FunctionTok{summary}\NormalTok{(housingData)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Neighborhood       Market.Value.per.SqFt     Boro             Year.Built  
+##  Length:2530        Min.   : 10.66        Length:2530        Min.   :1825  
+##  Class :character   1st Qu.: 75.10        Class :character   1st Qu.:1926  
+##  Mode  :character   Median :114.89        Mode  :character   Median :1986  
+##                     Mean   :133.17                           Mean   :1967  
+##                     3rd Qu.:189.91                           3rd Qu.:2005  
+##                     Max.   :399.38                           Max.   :2010
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Average price per square foot by borough}
+\NormalTok{avg\_price\_by\_boro }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(Market.Value.per.SqFt }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Boro, }\AttributeTok{data =}\NormalTok{ housingData, }\AttributeTok{FUN =}\NormalTok{ mean)}
+\FunctionTok{print}\NormalTok{(avg\_price\_by\_boro)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            Boro Market.Value.per.SqFt
+## 1         Bronx              47.93232
+## 2      Brooklyn              80.13439
+## 3     Manhattan             180.59265
+## 4        Queens              77.38137
+## 5 Staten Island              41.26958
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Correlation between Year Built and Market Value per SqFt}
+\FunctionTok{cor}\NormalTok{(housingData}\SpecialCharTok{$}\NormalTok{Year.Built, housingData}\SpecialCharTok{$}\NormalTok{Market.Value.per.SqFt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.09559073
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Boxplot of Market Value per SqFt by Borough}
+\FunctionTok{boxplot}\NormalTok{(Market.Value.per.SqFt }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Boro, }\AttributeTok{data =}\NormalTok{ housingData, }\AttributeTok{main =} \StringTok{"Market Value per SqFt by Borough"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Create multiple plots to demonstrates the correlations between
+  different variables. Remember to label all axes and give title to each
+  graph.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter your code here!}
+\FunctionTok{plot}\NormalTok{(housingData}\SpecialCharTok{$}\NormalTok{Year.Built, housingData}\SpecialCharTok{$}\NormalTok{Market.Value.per.SqFt,}
+     \AttributeTok{xlab =} \StringTok{"Year Built"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Market Value per SqFt"}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Market Value vs. Year Built"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Boxplot of market value by borough}
+\FunctionTok{boxplot}\NormalTok{(Market.Value.per.SqFt }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Boro, }\AttributeTok{data =}\NormalTok{ housingData,}
+        \AttributeTok{main =} \StringTok{"Market Value by Borough"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R_Lab_Assignment_Sara_files/figure-latex/unnamed-chunk-12-2.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Write a summary about your findings from this exercise.
+\end{enumerate}
+
+=\textgreater{} Enter your answer here!
+
+So, what did we learn about NYC housing? - New buildings cost more:
+Newer buildings are generally more expensive than older ones. -
+Manhattan is the most expensive: If you want to live in Manhattan, be
+prepared to pay a lot of money. - Other boroughs are cheaper: The other
+boroughs in NYC are generally more affordable than Manhattan.
+
+Basically, if you want a fancy, new apartment in Manhattan, get ready to
+break the bank
+
+\end{document}
